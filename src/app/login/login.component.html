@@ -1,0 +1,24 @@
+<form novalidate [formGroup]="loginForm" class="" id="">
+
+    <div class="row">
+        <div class="col-md-12">
+            <label for="name">nome</label>
+            <input type="text" formControlName="name" class="form-control" id="name" placeholder="nome"
+                   [ngClass]="{
+                        'is-invalid': loginForm.controls['name'].invalid && (loginForm.controls['name'].dirty || loginForm.controls['name'].touched),
+                        'is-valid': loginForm.controls['name'].valid && (loginForm.controls['name'].dirty || loginForm.controls['name'].touched)
+                    }">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <label for="password">password</label>
+            <input type="password" formControlName="password" class="form-control" id="password" placeholder="password"
+                   [ngClass]="{
+                        'is-invalid': loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched),
+                        'is-valid': loginForm.controls['password'].valid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)
+                    }">
+        </div>
+    </div>
+</form>
