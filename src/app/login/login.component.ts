@@ -7,7 +7,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 const maxLengthName: number = 20;
 const minLengthName: number = 3;
 
-const minLengthPassword: number = 20;
+const minLengthPassword: number = 2;
 
 @Component({
   selector: 'app-login',
@@ -26,6 +26,14 @@ export class LoginComponent implements OnInit{
   
   loginForm: FormGroup;
 
+  async login() {
+    await this.webService.getUser('getUser', { username: this.loginForm.value.name, password: this.loginForm.value.password });
+
+    console.log(this.webService.serverResponse);
+
+    if(this.webService.serverResponse.status == 0) console.log('Login effettuato');
+    else console.log('Login fallito');
+  }
 
   async ngOnInit() {
     // this.webService.getUser('getUser', { username: 'Carlo', password: 'carlo' });
