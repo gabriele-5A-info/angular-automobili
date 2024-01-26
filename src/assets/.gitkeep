@@ -1,0 +1,1 @@
+pipe(gulp.dest('dist/assets/img'))

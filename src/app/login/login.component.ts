@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { WebserviceService } from '../service/webservice.service';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 // const for the login
 const maxLengthName: number = 20;
@@ -16,23 +17,38 @@ const minLengthPassword: number = 2;
 })
 export class LoginComponent implements OnInit{
 
+  loginForm: FormGroup;
+  errorName: boolean = false;
+  errorPassword: boolean = false;
   
-  constructor(public webService: WebserviceService, private fb: FormBuilder) {
+  constructor(public webService: WebserviceService, private fb: FormBuilder, private router: Router) {
     this.loginForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(minLengthName), Validators.maxLength(maxLengthName)]],
       password: ['', [Validators.required, Validators.minLength(minLengthPassword)]]
     });
   }
   
-  loginForm: FormGroup;
-
   async login() {
     await this.webService.getUser('getUser', { username: this.loginForm.value.name, password: this.loginForm.value.password });
 
-    console.log(this.webService.serverResponse);
+    if(this.webService.serverResponse.status != 0) {
+      this.errorName = true;
+      this.errorPassword = true;
+      return;
+    }
 
-    if(this.webService.serverResponse.status == 0) console.log('Login effettuato');
-    else console.log('Login fallito');
+    this.router.navigate(['/home']);
+  }
+
+  resetError(error: string) {
+    switch(error) {
+      case 'name':
+        this.errorName = false;
+        break;
+      case 'password':
+        this.errorPassword = false;
+        break;
+    }
   }
 
   async ngOnInit() {

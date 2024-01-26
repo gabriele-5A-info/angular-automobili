@@ -1,1 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    min-width: 0;
+    min-height: 0;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+/* animations */
+@keyframes word-drop{
+    0%{
+        transform: translateY(0);
+    }
+    25%{
+        transform: translateY(0.5rem);
+    }
+    50%{
+        transform: translateY(0);
+    }
+    75%{
+        transform: translateY(0.5rem);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+@keyframes car-run{
+    0%{
+        transform: translateX(0);
+    }
+    80%{
+        transform: translateX(1200%);
+    }
+    85%{
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
