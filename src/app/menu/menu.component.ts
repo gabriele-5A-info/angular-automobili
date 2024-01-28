@@ -21,7 +21,7 @@ export class MenuComponent implements  OnInit{
       this.btns[i].classList.add('animation-in');
       this.btns[i].classList.remove('hide');
       
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise(resolve => setTimeout(resolve, 1000));
 
       this.btns[i].classList.remove('animation-in');
     }
@@ -33,7 +33,7 @@ export class MenuComponent implements  OnInit{
     for(let i = this.btns.length - 1; i >= 0; i--) {
       this.btns[i].classList.add('animation-out');
       
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise(resolve => setTimeout(resolve, 1000));
 
       this.btns[i].classList.add('hide');
     }
@@ -47,7 +47,7 @@ export class MenuComponent implements  OnInit{
     for(let i = this.btns.length - 1; i >= 0; i--) {
       this.btns[i].classList.add('animation-out');
       
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise(resolve => setTimeout(resolve, 1000));
 
       this.btns[i].classList.add('hide');
     }
@@ -61,7 +61,7 @@ export class MenuComponent implements  OnInit{
     for(let i = this.btns.length - 1; i >= 0; i--) {
       this.btns[i].classList.add('animation-out');
       
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise(resolve => setTimeout(resolve, 1000));
 
       this.btns[i].classList.add('hide');
     }

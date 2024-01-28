@@ -71,11 +71,11 @@ body{
 
 
 .animation-in{
-    animation: fade-in 2s ease-in-out;
+    animation: fade-in 1s ease-in-out;
 }
 
 .animation-out{
-    animation: fade-out 2s ease-in-out;
+    animation: fade-out 1s ease-in-out;
 }
 
 .hide{

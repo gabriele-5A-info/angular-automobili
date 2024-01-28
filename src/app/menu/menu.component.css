@@ -40,7 +40,7 @@
     font-size: 1.2rem;
     font-weight: bold;
     color: white;
-    background-color: #44504f;
+    background-color: #7a0019;
     border: none;
     border-radius: 1rem;
     padding: 1rem 2rem;
@@ -51,11 +51,11 @@
 }
 
 .btn:hover{
-    background-color: #031927;
+    background-color: #970023;
     box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.5);
 }
 
 .btn:active{
-    background-color: #06273b;
+    background-color: #c40027;
     box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.5);
 }

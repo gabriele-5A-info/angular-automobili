@@ -1,7 +1,13 @@
-<form novalidate [formGroup]="loginForm" class="" id="">
+<form novalidate [formGroup]="loginForm" class="container display-login" id="form">
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-10">
+            <img src="../../assets/img/login.jpg" alt="login" id="loginImg">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 animation-element hide">
             <label for="name">nome</label>
             <input type="text" formControlName="name" class="form-control" id="name" placeholder="nome" (focus)="resetError('name')"
                    [ngClass]="{
@@ -12,7 +18,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 animation-element hide">
             <label for="password">password</label>
             <input type="password" formControlName="password" class="form-control" id="password" placeholder="password" (focus)="resetError('password')"
                    [ngClass]="{
@@ -23,7 +29,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 animation-element hide">
             <button type="button" class="btn btn-primary" [disabled]="!loginForm.valid" (click)="login()">accedi</button>
         </div>
     </div>

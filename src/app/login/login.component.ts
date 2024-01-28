@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit{
   }
   
   async login() {
+    document.getElementById('btn-back-menu')?.click();
     await this.webService.getUser('getUser', { username: this.loginForm.value.name, password: this.loginForm.value.password });
 
     if(this.webService.serverResponse.status != 0) {
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit{
       return;
     }
 
-    this.router.navigate(['/home']);
+    this.router.navigate(['/menu']);
   }
 
   resetError(error: string) {
@@ -51,6 +52,8 @@ export class LoginComponent implements OnInit{
     }
   }
 
+
+  htmlElement: any = [];
   async ngOnInit() {
     // this.webService.getUser('getUser', { username: 'Carlo', password: 'carlo' });
 
@@ -61,5 +64,16 @@ export class LoginComponent implements OnInit{
     // this.webService.getAutoByMarca('getAutoByMarca', { marca: 'Jaguar' });
 
     // this.webService.addAuto('addAuto', {nome: 'Ferrari', marca: 'Ferrari', nPorte: 2, cilindrata: 2000, colore: 'rosso', anno: 2019, prezzo: 200000, targa: 'AA123BB', km: 0, nazione: 'Italia'});
+
+    this.htmlElement = document.getElementsByClassName('animation-element');
+
+    for (let i = 0; i < this.htmlElement.length; i++) {
+      this.htmlElement[i].classList.add('animation-in');
+      this.htmlElement[i].classList.remove('hide');
+      
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      this.htmlElement[i].classList.remove('animation-in');
+    }
   }
 }
