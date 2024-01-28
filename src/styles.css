@@ -46,3 +46,38 @@ body{
         opacity: 1;
     }
 }
+
+@keyframes fade-in{
+    0%{
+        transform: translateY(-1000%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out{
+    0%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-1000%);
+        opacity: 0;
+    }
+}
+
+
+.animation-in{
+    animation: fade-in 2s ease-in-out;
+}
+
+.animation-out{
+    animation: fade-out 2s ease-in-out;
+}
+
+.hide{
+    visibility: hidden;
+}
