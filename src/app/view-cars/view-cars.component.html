@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <div class="row no-scrollbar">
+        <div class="card animation-appear" *ngFor="let car of this.webService.serverResponse.data" id="card-{{car.id}}">
+            <div class="card-title">
+                {{car.nome}}
+            </div>
+            
+            <div class="card-body">
+                <p><strong>prezzo:</strong> {{car.prezzo}}€</p>
+                <p><strong>targa:</strong> {{car.targa}}</p>
+                <p>{{car.km}}km</p>
+            </div>
+
+            <div class="card-foot">
+                <button class="btn btn-primary" (click)="showCar(car.id)">vedi dettagli</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="fog animation-fog-in" *ngIf="this.auto">
+    <div class="card animation-card-pop" id="cardShow" *ngIf="this.auto">
+        <div class="card-title">
+            {{this.auto.nome}}
+        </div>
+        
+        <div class="card-body">
+            <p><strong>prezzo:</strong> {{this.auto.prezzo}}€</p>
+            <p><strong>targa:</strong> {{this.auto.targa}}</p>
+            <p>{{this.auto.km}}km</p>
+        </div>
+    
+        <div class="card-foot">
+            <button class="btn btn-primary" (click)="back(this.auto.id)">chiudi</button>
+        </div>
+    </div>
+</div>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { OnInit } from '@angular/core';
 import { __addDisposableResource } from 'tslib';
+import { WebserviceService } from '../service/webservice.service';
 
 @Component({
   selector: 'app-menu',
@@ -10,7 +11,7 @@ import { __addDisposableResource } from 'tslib';
 })
 export class MenuComponent implements  OnInit{
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, public webService: WebserviceService) { }
 
   btns: any = [];
 
@@ -52,7 +53,7 @@ export class MenuComponent implements  OnInit{
       this.btns[i].classList.add('hide');
     }
 
-    this.router.navigate(['/cars']);
+    this.router.navigate(['/viewCars']);
   }
 
   async routerAddCar() {

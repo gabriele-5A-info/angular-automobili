@@ -140,7 +140,7 @@ dispatcher.addServizio('/getAuto', async (req, res) => {
         param = JSON.parse(param);
 
         // definisco la query
-        const query = `SELECT * FROM modelli WHERE id = ${param.id}`;
+        const query = `SELECT modelli.id, anno, cilindrata, colore, km, nPorte, nazione, modelli.nome, prezzo, targa, marche.nome AS marca FROM modelli INNER JOIN marche ON modelli.codMarca = marche.id WHERE modelli.id = ${param.id}`;
 
         // eseguo la query
         const result = await doQuery(query);

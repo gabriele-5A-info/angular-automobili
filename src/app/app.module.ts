@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { MenuComponent } from './menu/menu.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ViewCarsComponent } from './view-cars/view-cars.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     LoginComponent,
     PagenotfoundComponent,
     MenuComponent,
-    NavbarComponent
+    NavbarComponent,
+    ViewCarsComponent
   ],
   imports: [
     BrowserModule,

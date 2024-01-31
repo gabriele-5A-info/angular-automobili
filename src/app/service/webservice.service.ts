@@ -9,13 +9,15 @@ export class WebserviceService {
   constructor(private connectionService: ConnectionService) { }
 
   serverResponse: any = [];
+  auto: any = [];
+  userData: any = [];
 
   /**
    * @description: get the user from the server if the parameters are correct (username and password)
    * @async
    * @param {string} endPoint: The endpoint of the request (name of the service)
    * @param {any} par: The parameters of the request
-   * @returns {Promise<any>} The data are saved in the serverResponse variable
+   * @returns {Promise<any>} The data are saved in the serverResponse variable and in the userData variable (to use in the login component)
    */
   async getUser(endPoint: string, par: any): Promise<any> {
     await new Promise((resolve, reject) => {
@@ -23,6 +25,7 @@ export class WebserviceService {
         (data: any) => {
           console.log(data);
           this.serverResponse = data;
+          this.userData = data;
           resolve(this.serverResponse);
         },
         (error: any) => {
@@ -60,14 +63,14 @@ export class WebserviceService {
    * @async
    * @param {string} endPoint: The endpoint of the request (name of the service)
    * @param {any} par: The parameters of the request
-   * @returns {Promise<any>} The data are saved in the serverResponse variable
+   * @returns {Promise<any>} The data are saved in the auto variable
    */
   async getAuto(endPoint: string, par: any): Promise<any> {
     await new Promise((resolve, reject) => {
       this.connectionService.sendPostRequest(endPoint, par).subscribe(
         (data: any) => {
           console.log(data);
-          this.serverResponse = data;
+          this.auto = data;
           resolve(this.serverResponse);
         },
         (error: any) => {

@@ -13,9 +13,6 @@ export class NavbarComponent {
   showMenu(){
     document.getElementById("logo")?.classList.add("run-animation");
     
-    setTimeout(() => {
-      document.getElementById("logo")?.classList.remove("run-animation");
-      this.router.navigate(['/menu']);
-    }, 4000);
+    this.router.navigate(['/menu']);
   }
 }

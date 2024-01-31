@@ -66,3 +66,16 @@ label{
     background-color: #c40027;
     box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.5);
 }
+
+.error{
+    color: lightgray;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.error:hover{
+    color: grey;
+    text-decoration: none;
+}

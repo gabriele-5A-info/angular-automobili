@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+body::-webkit-scrollbar {
+    display: none;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -69,6 +73,49 @@ body{
     }
 }
 
+@keyframes appear{
+    0%{
+        scale: 0.5;
+        opacity: 0;
+    }
+    100%{
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+@keyframes disappear{
+    0%{
+        scale: 1;
+        opacity: 1;
+    }
+    100%{
+        scale: 0.5;
+        opacity: 0;
+    }
+}
+
+@keyframes fog-in{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes card-pop{
+    0%{
+        transform: scale(0.5) translate(0%, 0%);
+        opacity: 0;
+    }
+    100%{
+        transform: scale(1) translate(-50%, -50%);
+        opacity: 1;
+    }
+
+}
+
 
 .animation-in{
     animation: fade-in 1s ease-in-out;
@@ -76,6 +123,22 @@ body{
 
 .animation-out{
     animation: fade-out 1s ease-in-out;
+}
+
+.animation-appear{
+    animation: appear 0.5s ease-in-out;
+}
+
+.animation-disappear{
+    animation: disappear 0.5s ease-in-out;
+}
+
+.animation-fog-in{
+    animation: fog-in 0.5s ease-in-out;
+}
+
+.animation-card-pop{
+    animation: card-pop 0.5s ease-in-out;
 }
 
 .hide{

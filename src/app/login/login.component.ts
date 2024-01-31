@@ -18,6 +18,7 @@ const minLengthPassword: number = 2;
 export class LoginComponent implements OnInit{
 
   loginForm: FormGroup;
+  errorLogin = false;
   errorName: boolean = false;
   errorPassword: boolean = false;
   
@@ -29,19 +30,21 @@ export class LoginComponent implements OnInit{
   }
   
   async login() {
-    document.getElementById('btn-back-menu')?.click();
     await this.webService.getUser('getUser', { username: this.loginForm.value.name, password: this.loginForm.value.password });
-
+    
     if(this.webService.serverResponse.status != 0) {
       this.errorName = true;
       this.errorPassword = true;
+      this.errorLogin = true;
       return;
     }
 
+    document.getElementById('btn-back-menu')?.click();
     this.router.navigate(['/menu']);
   }
 
   resetError(error: string) {
+    this.errorLogin = false;
     switch(error) {
       case 'name':
         this.errorName = false;

@@ -31,6 +31,7 @@
     <div class="row">
         <div class="col-md-12 animation-element hide">
             <button type="button" class="btn btn-primary" [disabled]="!loginForm.valid" (click)="login()">accedi</button>
+            <p class="error" *ngIf="errorLogin">nome o password non validi</p>
         </div>
     </div>
 </form>
