@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit{
       this.htmlElement[i].classList.add('animation-in');
       this.htmlElement[i].classList.remove('hide');
       
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise(resolve => setTimeout(resolve, 750));
 
       this.htmlElement[i].classList.remove('animation-in');
     }

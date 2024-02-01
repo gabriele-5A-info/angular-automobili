@@ -216,6 +216,58 @@ dispatcher.addServizio('/getAutoByMarca', async (req, res) => {
     });
 });
 
+dispatcher.addServizio('/buyAuto', async (req, res) => {
+
+    let param = '';
+
+    // recupero i dati in post
+    req.on('data', (data) => {
+        param += data;
+    });
+
+    // quando ho finito di recuperare i dati in post
+    req.on('end', async () => {
+
+        // controllo se ho dei dati in post altrimenti invio un errore
+        if(!param) {
+            console.log('errore: nessun dato in post');
+            res.writeHead(400, header);
+            res.end('errore: nessun dato in post');
+            return;
+        }
+
+        // converto i dati in json
+        param = JSON.parse(param);
+
+        // recupero l'ora attuale
+        const data = new Date();
+
+        // definisco la query
+        const query = `INSERT INTO log (idUtente, idModello, data) VALUES (${param.idUser}, ${param.idModello}, '${data.getFullYear()}-${data.getMonth() + 1}-${data.getDate()}')`;
+
+        // eseguo la query
+        const result = await doQuery(query);
+        console.log(result);
+
+        // definisco la risposta
+        // 0 => auto acquistata
+        // 1 => auto non acquistata
+        const response = {
+            title: 'buyAuto',
+            status: result.affectedRows !== 0 ? 0 : 1,
+            message: result.affectedRows !== 0 ? 'auto acquistata' : 'auto non acquistata'
+        };
+
+        // invio la risposta
+        header['Content-Type'] = 'application/json';
+
+        res.writeHead(200, header);
+        res.end(JSON.stringify(response));
+
+        header['Content-Type'] = 'text/plain';
+    });
+});
+
 dispatcher.addServizio('/addAuto', async (req, res) => {
 
     let param = '';

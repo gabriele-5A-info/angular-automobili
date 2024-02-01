@@ -56,7 +56,7 @@ body{
         transform: translateY(-1000%);
         opacity: 0;
     }
-    100%{
+    80%{
         transform: translateY(0);
         opacity: 1;
     }

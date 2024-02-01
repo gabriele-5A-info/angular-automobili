@@ -49,4 +49,21 @@ export class ViewCarsComponent implements OnInit{
 
     this.auto = null;
   }
+
+  async buy(id: string) {
+    document.getElementById('card-' + id)?.classList.remove('hide');
+    document.getElementById('card-' + id)?.classList.add('animation-appear');
+    document.getElementById('cardShow')?.classList.remove('animation-card-pop');
+    document.getElementById('cardShow')?.classList.add('animation-disappear');
+
+    await new Promise(resolve => setTimeout(resolve, 500));
+
+    document.getElementById('card-' + id)?.classList.remove('animation-appear');
+    document.getElementById('cardShow')?.classList.remove('animation-disappear');
+    document.getElementById('cardShow')?.classList.add('hide');
+  
+    await this.webService.buyAuto("buyAuto", { idModello: id, idUser: this.webService.userData.data[0].id });
+
+    this.auto = null;
+  }
 }

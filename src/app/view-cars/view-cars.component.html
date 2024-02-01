@@ -27,10 +27,17 @@
         <div class="card-body">
             <p><strong>prezzo:</strong> {{this.auto.prezzo}}€</p>
             <p><strong>targa:</strong> {{this.auto.targa}}</p>
+            <p><strong>colore:</strong> {{this.auto.colore}}</p>
+            <p><strong>anno:</strong> {{this.auto.anno}}</p>
+            <p><strong>cilindrata:</strong> {{this.auto.cilindrata}}</p>
+            <p><strong>nPorte:</strong> {{this.auto.nPorte}}</p>
+            <p><strong>nazione:</strong> {{this.auto.nazione}}</p>
+            <p><strong>marca:</strong> {{this.auto.marca}}</p>
             <p>{{this.auto.km}}km</p>
         </div>
     
         <div class="card-foot">
+            <button class="btn btn-primary" (click)="buy(this.auto.id)">acquista</button>
             <button class="btn btn-primary" (click)="back(this.auto.id)">chiudi</button>
         </div>
     </div>

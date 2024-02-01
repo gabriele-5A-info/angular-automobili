@@ -11,6 +11,7 @@ export class WebserviceService {
   serverResponse: any = [];
   auto: any = [];
   userData: any = [];
+  buy: any = [];
 
   /**
    * @description: get the user from the server if the parameters are correct (username and password)
@@ -71,7 +72,7 @@ export class WebserviceService {
         (data: any) => {
           console.log(data);
           this.auto = data;
-          resolve(this.serverResponse);
+          resolve(this.auto);
         },
         (error: any) => {
           console.log(error);
@@ -95,6 +96,29 @@ export class WebserviceService {
           console.log(data);
           this.serverResponse = data;
           resolve(this.serverResponse);
+        },
+        (error: any) => {
+          console.log(error);
+          reject();
+        }
+      );
+    });
+  }
+
+  /**
+   * @description: save the car in the log table (to buy it)
+   * @async
+   * @param {string} endPoint: The endpoint of the request (name of the service)
+   * @param {any} par: The parameters of the request
+   * @returns {Promise<any>} The data are saved in the buy variable
+   */
+  async buyAuto(endPoint: string, par: any): Promise<any> {
+    await new Promise((resolve, reject) => {
+      this.connectionService.sendPostRequest(endPoint, par).subscribe(
+        (data: any) => {
+          console.log(data);
+          this.buy = data;
+          resolve(this.buy);
         },
         (error: any) => {
           console.log(error);
