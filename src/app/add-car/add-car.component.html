@@ -3,8 +3,8 @@
 <form novalidate [formGroup]="addCarForm" class="container-fluid" id="form">
 
     <div class="row">
-        <div class="col-md-10">
-            <h1>Aggiungi auto</h1>
+        <div class="col-md-10 centered">
+            <h1 id="title">Aggiungi auto</h1>
         </div>
     </div>
 
@@ -119,7 +119,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-12 animation-element hide">
+        <div class="col-md-12 animation-element hide centered">
             <button type="button" class="btn btn-primary" [disabled]="!addCarForm.valid" (click)="addCar()">aggiungi</button>
             <p class="error" *ngIf="errorAddCar">errore nell'aggiunta dell'auto</p>
         </div>

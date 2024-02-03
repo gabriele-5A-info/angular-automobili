@@ -1,0 +1,87 @@
+#form{
+    width: 80%;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 10px auto;
+    box-shadow: 0 0 10px 0 black;
+}
+
+.centered{
+    text-align: center;
+    margin: 0 auto;
+}
+
+#title{
+    display: inline-block;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-transform: lowercase;
+    text-decoration: underline;
+}
+
+#title:hover{
+    text-decoration: underline #ff0000;
+}
+
+#form input{
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0.3rem auto;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+#form label{
+    font-weight: bold;
+    text-transform: lowercase;
+    font-size: 1.2rem;
+    margin: 0.2rem auto;
+    display: block;
+    text-align: left;
+    text-decoration: underline;
+}
+
+#form label:hover{
+    text-decoration: underline #ff0000;
+}
+
+#form input:hover{
+    box-shadow: 0 0 5px 0 black;
+}
+
+#form input:active{
+    box-shadow: 0 0 10px 0 black;
+}
+
+#form input:focus{
+    outline: none;
+    box-shadow: 0 0 10px 0 black;
+}
+
+#form button{
+    width: 20%;
+    padding: 0.5rem;
+    margin: 0.3rem auto;
+    border-radius: 15px;
+    border: none;
+    background-color: #ff0000;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: lowercase;
+}
+
+#form button:hover{
+    background-color: #ff3333;
+}
+
+#form button:active{
+    background-color: #ff6666;
+}
+
+#form button:focus{
+    outline: none;
+    box-shadow: 0 0 10px 0 black;
+}

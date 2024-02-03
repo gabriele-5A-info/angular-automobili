@@ -295,10 +295,7 @@ dispatcher.addServizio('/addAuto', async (req, res) => {
         param.codMarca = await checkMarca(param.marca, param.nazione);
 
         // definisco la query
-        const query = `INSERT INTO modelli 
-                       (nome, codMarca, nPorte, cilindrata, colore, anno, prezzo, targa, km) 
-                       VALUES 
-                       ('${param.nome}', ${param.codMarca}, ${param.nPorte}, ${param.cilindrata}, '${param.colore}', ${param.anno}, ${param.prezzo}, '${param.targa}', ${param.km})`;
+        const query = `INSERT INTO modelli (nome, codMarca, nPorte, cilindrata, colore, anno, prezzo, targa, km) VALUES ('${param.modello}', ${param.codMarca}, ${param.nPorte}, ${param.cilindrata}, '${param.colore}', ${param.anno}, ${param.prezzo}, '${param.targa}', ${param.km})`;
 
         // eseguo la query
         const result = await doQuery(query);

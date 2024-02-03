@@ -31,7 +31,7 @@ export class AddCarComponent implements OnInit{
       porte: new FormControl('', [Validators.required, Validators.min(minLengthPorte), Validators.max(maxLengthPorte)]),
       prezzo: new FormControl('', [Validators.required, Validators.min(0)]),
       colore: new FormControl('', [Validators.required, Validators.minLength(minLengthName), Validators.maxLength(maxLengthName)]),
-      targa: new FormControl('', [Validators.required, Validators.minLength(minLengthName), Validators.maxLength(maxLengthName)]),
+      targa: new FormControl('', [Validators.required, Validators.minLength(minLengthName), Validators.maxLength(maxLengthName), Validators.pattern('^[a-zA-Z]{2}[0-9]{3}[a-zA-Z]{2}$')]),
       cilindrata: new FormControl('', [Validators.required, Validators.min(0)]),
       nazione: new FormControl('', [Validators.required, Validators.minLength(minLengthName), Validators.maxLength(maxLengthName)]),
       km: new FormControl('', [Validators.required, Validators.min(0)])
@@ -58,19 +58,19 @@ export class AddCarComponent implements OnInit{
 
   async addCar(){
     let car = {
-      marca: this.addCarForm.value.marca,
-      modello: this.addCarForm.value.modello,
+      marca: this.toCapitalize(this.addCarForm.value.marca),
+      modello: this.toCapitalize(this.addCarForm.value.modello),
       anno: this.addCarForm.value.anno,
-      porte: this.addCarForm.value.porte,
+      nPorte: this.addCarForm.value.porte,
       prezzo: this.addCarForm.value.prezzo,
-      colore: this.addCarForm.value.colore,
-      targa: this.addCarForm.value.targa,
+      colore: this.toCapitalize(this.addCarForm.value.colore),
+      targa: this.addCarForm.value.targa.toUpperCase(),
       cilindrata: this.addCarForm.value.cilindrata,
-      nazione: this.addCarForm.value.nazione,
+      nazione: this.toCapitalize(this.addCarForm.value.nazione),
       km: this.addCarForm.value.km
     }
 
-    await this.webService.addAuto('addCar', car);
+    await this.webService.addAuto('addAuto', car);
     console.table(this.webService.serverResponse);
 
     if(this.webService.serverResponse.status != 0) {
@@ -79,5 +79,9 @@ export class AddCarComponent implements OnInit{
     }
 
     console.log('Auto aggiunta con successo');
+  }
+
+  toCapitalize(name: string) {
+    return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
   }
 }
