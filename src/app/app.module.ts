@@ -11,6 +11,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { MenuComponent } from './menu/menu.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ViewCarsComponent } from './view-cars/view-cars.component';
+import { AddCarComponent } from './add-car/add-car.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ViewCarsComponent } from './view-cars/view-cars.component';
     PagenotfoundComponent,
     MenuComponent,
     NavbarComponent,
-    ViewCarsComponent
+    ViewCarsComponent,
+    AddCarComponent
   ],
   imports: [
     BrowserModule,

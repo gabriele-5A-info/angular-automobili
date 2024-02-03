@@ -1,4 +1,7 @@
-<div class="container-fluid">
+<!-- in this way you cant enter the view-cars page without the login -->
+<app-pagenotfound *ngIf="!this.webService.userData.data"></app-pagenotfound>
+
+<div class="container-fluid" *ngIf="this.webService.userData.data">
     <div class="row no-scrollbar">
         <div class="card animation-appear" *ngFor="let car of this.webService.serverResponse.data" id="card-{{car.id}}">
             <div class="card-title">

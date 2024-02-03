@@ -23,7 +23,11 @@ export class MenuComponent implements  OnInit{
       this.btns[i].classList.remove('hide');
       
       await new Promise(resolve => setTimeout(resolve, 750));
+    }
 
+    await new Promise(resolve => setTimeout(resolve, 500));
+
+    for(let i = 0; i < this.btns.length; i++) {
       this.btns[i].classList.remove('animation-in');
     }
   }
@@ -57,7 +61,7 @@ export class MenuComponent implements  OnInit{
   }
 
   async routerAddCar() {
-    console.log('cars/add');
+    console.log('addCar');
 
     for(let i = this.btns.length - 1; i >= 0; i--) {
       this.btns[i].classList.add('animation-out');
@@ -67,6 +71,6 @@ export class MenuComponent implements  OnInit{
       this.btns[i].classList.add('hide');
     }
 
-    this.router.navigate(['/cars/add']);
+    this.router.navigate(['/addCar']);
   }
 }

@@ -1,0 +1,132 @@
+<!-- app-pagenotfound *ngIf="!this.webService.userData.data || !this.webService.userData.data[0].admin"></!-->
+
+<form novalidate [formGroup]="addCarForm" class="container-fluid" id="form">
+
+    <div class="row">
+        <div class="col-md-10">
+            <h1>Aggiungi auto</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 animation-element hide">
+            <label for="modello">modello</label>
+            <input type="text" formControlName="modello" class="form-control" id="modello" placeholder="modello"
+                   [ngClass]="{
+                        'is-invalid': addCarForm.controls['modello'].invalid && (addCarForm.controls['modello'].dirty || addCarForm.controls['modello'].touched) || errorAddCar,
+                        'is-valid': addCarForm.controls['modello'].valid && (addCarForm.controls['modello'].dirty || addCarForm.controls['modello'].touched)
+                    }">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 animation-element hide">
+            <label for="marca">marca</label>
+            <input type="text" formControlName="marca" class="form-control" id="marca" placeholder="marca"
+                   [ngClass]="{
+                        'is-invalid': addCarForm.controls['marca'].invalid && (addCarForm.controls['marca'].dirty || addCarForm.controls['marca'].touched) || errorAddCar,
+                        'is-valid': addCarForm.controls['marca'].valid && (addCarForm.controls['marca'].dirty || addCarForm.controls['marca'].touched)
+                    }">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 animation-element hide">
+            <label for="anno">anno</label>
+            <input type="number" formControlName="anno" class="form-control" id="anno" placeholder="anno"
+                   [ngClass]="{
+                        'is-invalid': addCarForm.controls['anno'].invalid && (addCarForm.controls['anno'].dirty || addCarForm.controls['anno'].touched) || errorAddCar,
+                        'is-valid': addCarForm.controls['anno'].valid && (addCarForm.controls['anno'].dirty || addCarForm.controls['anno'].touched)
+                    }">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 animation-element hide">
+            <label for="prezzo">prezzo</label>
+            <input type="number" formControlName="prezzo" class="form-control" id="prezzo" placeholder="prezzo"
+                   [ngClass]="{
+                        'is-invalid': addCarForm.controls['prezzo'].invalid && (addCarForm.controls['prezzo'].dirty || addCarForm.controls['prezzo'].touched) || errorAddCar,
+                        'is-valid': addCarForm.controls['prezzo'].valid && (addCarForm.controls['prezzo'].dirty || addCarForm.controls['prezzo'].touched)
+                    }">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 animation-element hide">
+            <label for="colore">colore</label>
+            <input type="text" formControlName="colore" class="form-control" id="colore" placeholder="colore"
+                   [ngClass]="{
+                        'is-invalid': addCarForm.controls['colore'].invalid && (addCarForm.controls['colore'].dirty || addCarForm.controls['colore'].touched) || errorAddCar,
+                        'is-valid': addCarForm.controls['colore'].valid && (addCarForm.controls['colore'].dirty || addCarForm.controls['colore'].touched)
+                    }">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 animation-element hide">
+            <label for="targa">targa</label>
+            <input type="text" formControlName="targa" class="form-control" id="targa" placeholder="targa"
+                   [ngClass]="{
+                        'is-invalid': addCarForm.controls['targa'].invalid && (addCarForm.controls['targa'].dirty || addCarForm.controls['targa'].touched) || errorAddCar,
+                        'is-valid': addCarForm.controls['targa'].valid && (addCarForm.controls['targa'].dirty || addCarForm.controls['targa'].touched)
+                    }">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 animation-element hide">
+            <label for="chilometri">km</label>
+            <input type="number" formControlName="km" class="form-control" id="km" placeholder="km"
+                   [ngClass]="{
+                        'is-invalid': addCarForm.controls['km'].invalid && (addCarForm.controls['km'].dirty || addCarForm.controls['km'].touched) || errorAddCar,
+                        'is-valid': addCarForm.controls['km'].valid && (addCarForm.controls['km'].dirty || addCarForm.controls['km'].touched)
+                    }">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 animation-element hide">
+            <label for="cilindrata">cilindrata</label>
+            <input type="number" formControlName="cilindrata" class="form-control" id="cilindrata" placeholder="cilindrata"
+                   [ngClass]="{
+                        'is-invalid': addCarForm.controls['cilindrata'].invalid && (addCarForm.controls['cilindrata'].dirty || addCarForm.controls['cilindrata'].touched) || errorAddCar,
+                        'is-valid': addCarForm.controls['cilindrata'].valid && (addCarForm.controls['cilindrata'].dirty || addCarForm.controls['cilindrata'].touched)
+                    }">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 animation-element hide">
+            <label for="porte">porte</label>
+            <input type="number" formControlName="porte" class="form-control" id="porte" placeholder="porte"
+                   [ngClass]="{
+                        'is-invalid': addCarForm.controls['porte'].invalid && (addCarForm.controls['porte'].dirty || addCarForm.controls['porte'].touched) || errorAddCar,
+                        'is-valid': addCarForm.controls['porte'].valid && (addCarForm.controls['porte'].dirty || addCarForm.controls['porte'].touched)
+                    }">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 animation-element hide">
+            <label for="nazione">nazione</label>
+            <input type="text" formControlName="nazione" class="form-control" id="nazione" placeholder="nazione"
+                   [ngClass]="{
+                        'is-invalid': addCarForm.controls['nazione'].invalid && (addCarForm.controls['nazione'].dirty || addCarForm.controls['nazione'].touched) || errorAddCar,
+                        'is-valid': addCarForm.controls['nazione'].valid && (addCarForm.controls['nazione'].dirty || addCarForm.controls['nazione'].touched)
+                    }">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 animation-element hide">
+            <button type="button" class="btn btn-primary" [disabled]="!addCarForm.valid" (click)="addCar()">aggiungi</button>
+            <p class="error" *ngIf="errorAddCar">errore nell'aggiunta dell'auto</p>
+        </div>
+    </div>
+
+</form>
+
+    
+
+
