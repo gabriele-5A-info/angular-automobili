@@ -1,32 +1,13 @@
 # AngularAutomobili
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+## Descrizione
 
-## Development server
+- Se sono presenti problemi con il dispatcher controllare il server e i node_modules di angular.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- L'utente per poter utilizzare i poteri di admin è username: Carlo e password: carlo
 
-## Code scaffolding
+- Quando si aggiunge una macchina viene fatto un controllo per vedere se il codMarca è recuperabile da una marca già presente nel database, se non è presente viene aggiunta una nuova marca.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Quando viene eseguito il logout viene semplicemente ricaricata la pagina principale. In questo modo i dati presenti nella pagina vengono cancellati.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-
-## TODO
-
-- [x] modificare successivamente il server in modo da non visualizzare tutti i dati ma solo quelli che servono (es. login)
-- [x] chiedere a Racca come gestire la nazione quando si aggiunge un'auto perché dipende se la marca è già presente o no
+- Il database contiene già dei dati di esempio, basta importarlo e tutto dovrebbe funzionare correttamente
