@@ -216,6 +216,34 @@ dispatcher.addServizio('/getAutoByMarca', async (req, res) => {
     });
 });
 
+dispatcher.addServizio('/getModels', async (req, res) => {
+
+    // definisco la query
+    const query = `SELECT * FROM marche`;
+
+    // eseguo la query
+    const result = await doQuery(query);
+    console.log(result);
+
+    // definisco la risposta
+    // 0 => marche trovate
+    // 1 => marche non trovate
+    const response = {
+        title: 'getModels',
+        status: result.length !== 0 ? 0 : 1,
+        data: result,
+        message: result.length !== 0 ? 'marche trovate' : 'marche non trovate'
+    };
+
+    // invio la risposta
+    header['Content-Type'] = 'application/json';
+
+    res.writeHead(200, header);
+    res.end(JSON.stringify(response));
+
+    header['Content-Type'] = 'text/plain';
+});
+
 dispatcher.addServizio('/buyAuto', async (req, res) => {
 
     let param = '';

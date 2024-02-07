@@ -1,7 +1,16 @@
 <!-- in this way you cant enter the view-cars page without the login -->
-<app-pagenotfound *ngIf="!this.webService.userData.data"></app-pagenotfound>
+<app-pagenotfound *ngIf="this.webService.userData.data"></app-pagenotfound>
 
-<div class="container-fluid" *ngIf="this.webService.userData.data">
+<div class="container-fluid" *ngIf="!this.webService.userData.data">
+    <div class="row centered">
+        <div class="col-6 centered">
+            <select name="carsModel" id="comboboxCars" [(ngModel)]="model" (change)="filterModel()">
+                <option value="0">tutti i modelli</option>
+                <option *ngFor="let model of this.webService.models.data" value="{{model.id}}">{{model.nome}}</option>
+            </select>
+        </div>
+    </div>
+
     <div class="row no-scrollbar">
         <div class="card animation-appear" *ngFor="let car of this.webService.serverResponse.data" id="card-{{car.id}}">
             <div class="card-title">

@@ -9,12 +9,26 @@ import { WebserviceService } from '../service/webservice.service';
 })
 export class ViewCarsComponent implements OnInit{
   
+  savedCars: any = [];
+  model: string = '0';
 
   constructor(public webService: WebserviceService) {
   }
 
   async ngOnInit() {
     await this.webService.visualizeAuto("visualizeAuto");
+    this.savedCars = this.webService.serverResponse.data;
+    await this.webService.getModels("getModels");
+  }
+
+  filterModel() {
+    if (this.model == '0') {
+      this.webService.serverResponse.data = this.savedCars;
+    } else {
+      this.webService.serverResponse.data = this.savedCars.filter((car: any) => {
+        return car.codMarca == this.model;
+      });
+    }
   }
 
   auto: any = null;

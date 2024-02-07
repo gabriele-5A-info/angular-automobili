@@ -12,6 +12,7 @@ export class WebserviceService {
   auto: any = [];
   userData: any = [];
   buy: any = [];
+  models: any = [];
 
   /**
    * @description: get the user from the server if the parameters are correct (username and password)
@@ -143,6 +144,28 @@ export class WebserviceService {
           console.log(data);
           this.serverResponse = data;
           resolve(this.serverResponse);
+        },
+        (error: any) => {
+          console.log(error);
+          reject();
+        }
+      );
+    });
+  }
+
+  /**
+   * @description: get all the models from the server
+   * @async
+   * @param {string} endPoint: The endpoint of the request (name of the service)
+   * @returns {Promise<any>} The data are saved in the models variable
+   */
+  async getModels(endPoint: string): Promise<any> {
+    await new Promise((resolve, reject) => {
+      this.connectionService.sendGetRequest(endPoint).subscribe(
+        (data: any) => {
+          console.log(data);
+          this.models = data;
+          resolve(this.models);
         },
         (error: any) => {
           console.log(error);
