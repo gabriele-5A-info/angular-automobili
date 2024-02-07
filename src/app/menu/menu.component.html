@@ -7,28 +7,26 @@
     <div class="row">
         <div class="col-md-12">
             <button class="btn btn-primary hide" (click)="routerLogin()" id="btnLogin"
-             
+            [disabled]="this.webService.userData.data"
             >login</button>
+            
+            <p class="logout" (click)="logout()" *ngIf="this.webService.userData.data">logout</p>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
             <button class="btn btn-primary hide" (click)="routerCars()" id="btnCars"
-            
+            [disabled]="!this.webService.userData.data"
             >view cars</button>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
             <button class="btn btn-primary hide" (click)="routerAddCar()" id="btnAddCar"
-            
+            [disabled]="this.webService.userData.admin != 1"
             >add car</button>
         </div>
     </div>
 </div>
 
-<!-- [disabled]="this.webService.userData.length != 0" -->
 
-<!-- [disabled]="this.webService.userData.length == 0" -->
-
-<!-- [disabled]="this.webService.userData.admin != 1" -->

@@ -11,6 +11,7 @@ export class ViewCarsComponent implements OnInit{
   
   savedCars: any = [];
   model: string = '0';
+  txtBtnBuy: string = 'Acquista';
 
   constructor(public webService: WebserviceService) {
   }
@@ -65,6 +66,15 @@ export class ViewCarsComponent implements OnInit{
   }
 
   async buy(id: string) {
+    
+    this.txtBtnBuy = 'Acquistato';
+    document.getElementById('btnBuy')?.classList.add('btn-success');
+
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
+    this.txtBtnBuy = 'Acquista';
+    document.getElementById('btnBuy')?.classList.remove('btn-success');
+
     document.getElementById('card-' + id)?.classList.remove('hide');
     document.getElementById('card-' + id)?.classList.add('animation-appear');
     document.getElementById('cardShow')?.classList.remove('animation-card-pop');

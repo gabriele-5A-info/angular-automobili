@@ -10,7 +10,10 @@ const header = {
 
 // definisco le varie librerie da utilizzare
 const http = require('http');
-const dispatcher = new(require('dispatcher/dispatcher'))(header);
+// se non funziona il dispatcher e va in errore il server utilizzare la cartella dispatcher, questo avviene perché quando si installano nuovi pacchetti
+// attraverso npm il dispatcher viene cancellato e quindi non funziona più
+const dispatcher = new(require('./dispatcher/dispatcher'))(header);
+// const dispatcher = new(require('dispatcher/dispatcher'))(header);
 const mysql = require('mysql');
 
 // definisco l'oggetto per la connessione al database

@@ -116,6 +116,10 @@
     background-color: #7a0019;
 }
 
+.btn-success{
+    background-color: #007a00 !important;
+}
+
 .card-foot button:hover{
     background-color: #970023;
     box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.5);

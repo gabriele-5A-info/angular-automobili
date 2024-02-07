@@ -59,3 +59,14 @@
     background-color: #c40027;
     box-shadow: 0 0 0.8rem rgba(0, 0, 0, 0.5);
 }
+
+.logout{
+    margin: 0.2rem 0;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: lowercase;
+    color: #828181;
+    text-shadow: 0 0 0.2rem rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    text-decoration: underline #781b1b;
+}

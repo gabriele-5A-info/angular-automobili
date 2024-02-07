@@ -85,3 +85,19 @@
     outline: none;
     box-shadow: 0 0 10px 0 black;
 }
+
+.error{
+    color: red;
+    font-weight: bold;
+    text-transform: lowercase;
+    text-align: center;
+    margin: 0.5rem auto;
+}
+
+.success{
+    color: green;
+    font-weight: bold;
+    text-transform: lowercase;
+    text-align: center;
+    margin: 0.5rem auto;
+}

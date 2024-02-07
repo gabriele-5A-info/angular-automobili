@@ -1,7 +1,7 @@
 <!-- in this way you cant enter the view-cars page without the login -->
-<app-pagenotfound *ngIf="this.webService.userData.data"></app-pagenotfound>
+<app-pagenotfound *ngIf="!this.webService.userData.data"></app-pagenotfound>
 
-<div class="container-fluid" *ngIf="!this.webService.userData.data">
+<div class="container-fluid" *ngIf="this.webService.userData.data">
     <div class="row centered">
         <div class="col-6 centered">
             <select name="carsModel" id="comboboxCars" [(ngModel)]="model" (change)="filterModel()">
@@ -50,7 +50,7 @@
     
         <div class="card-foot">
             <button class="btn btn-primary" id="btnBack" (click)="back(this.auto.id)">chiudi</button>
-            <button class="btn btn-primary" id="btnBuy" (click)="buy(this.auto.id)">acquista</button>
+            <button class="btn btn-primary" id="btnBuy" (click)="buy(this.auto.id)">{{txtBtnBuy}}</button>
         </div>
     </div>
 </div>

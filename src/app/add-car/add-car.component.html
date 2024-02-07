@@ -1,4 +1,4 @@
-<!-- app-pagenotfound *ngIf="!this.webService.userData.data || !this.webService.userData.data[0].admin"></!-->
+<app-pagenotfound *ngIf="!this.webService.userData.data || !this.webService.userData.admin"></app-pagenotfound>
 
 <form novalidate [formGroup]="addCarForm" class="container-fluid" id="form">
 
@@ -121,12 +121,11 @@
     <div class="row">
         <div class="col-md-12 animation-element hide centered">
             <button type="button" class="btn btn-primary" [disabled]="!addCarForm.valid" (click)="addCar()">aggiungi</button>
+            <p class="success" *ngIf="successAddCar">auto aggiunta con successo</p>
             <p class="error" *ngIf="errorAddCar">errore nell'aggiunta dell'auto</p>
         </div>
     </div>
 
 </form>
-
-    
 
 

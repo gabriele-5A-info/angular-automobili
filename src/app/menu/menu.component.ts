@@ -73,4 +73,8 @@ export class MenuComponent implements  OnInit{
 
     this.router.navigate(['/addCar']);
   }
+
+  logout() {
+    location.reload();
+  }
 }

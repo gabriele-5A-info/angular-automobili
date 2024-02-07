@@ -21,7 +21,8 @@ const annoMax: number = parseInt(new Date().getFullYear().toString());
 export class AddCarComponent implements OnInit{
 
   addCarForm: FormGroup;
-  errorAddCar = false;
+  errorAddCar: boolean = false;
+  successAddCar: boolean = false;
 
   constructor(public webService: WebserviceService) { 
     this.addCarForm = new FormGroup({
@@ -78,7 +79,12 @@ export class AddCarComponent implements OnInit{
       return;
     }
 
-    console.log('Auto aggiunta con successo');
+    this.successAddCar = true;
+    this.addCarForm.reset();
+
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
+    this.successAddCar = false;
   }
 
   toCapitalize(name: string) {
